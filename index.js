@@ -14,6 +14,7 @@ $(document).ready(function () {
         
     today = ano + '-' + mes + '-' + dia;
     $('#date').attr('max', today);
+
 })
 
 $('#btn').click(function(){
@@ -42,7 +43,7 @@ $('#btn').click(function(){
                     console.log(url);
                 }
 
-                $('.entrada').adiaClass('invisible');
+                $('.entrada').addClass('invisible');
                 $('.resp').removeClass('invisible');
 
                 $('#titulo-resp').html(title);
@@ -57,9 +58,9 @@ $('#btn').click(function(){
 })
 
 $('#btn-voltar').on('click', function (){
-    $('.content-img').adiaClass('invisible');
+    $('.content-img').addClass('invisible');
     $('.entrada').removeClass('invisible');
-    $('.resp').adiaClass('invisible');
+    $('.resp').addClass('invisible');
 })
 
 function validaEntrada(date) {
