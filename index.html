@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APOD</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"> defer</script>
     <script src="index.js" defer></script>
 </head>
 <body>
@@ -16,27 +17,31 @@
     <div class="container-principal">
         
         <div class="content-user">
-            <h3 class="titulo">Nasa APOD</h3>
+            <div class="entrada">
+                <h3 class="titulo">Nasa APOD</h3>
 
             <form action="" class="form">
-                <label for="date">Insira a data:</label>
+                <label for="date" id= "label-date">Insira a data:</label>
                 <input type="date" id="date" name="date">
                 <br>
                 <a id="btn">Enviar</a>
             </form>
+            </div>
+            
             
             <div class="resp invisible">
-                <h3 class="titulo">
+                <h3 class="titulo" id="titulo-resp">
 
                 </h3>
-                <p class="texto">
+                <p class="texto" id = "texto-resp">
                     
                 </p>
             </div>
         </div>
 
-        <div class="content-img">
-
+        <div class="content-img invisible">
+            <img src="" alt="" id="img">
+            <a id = 'btn-voltar'>Nova data</a>
         </div>
     </div>
     
