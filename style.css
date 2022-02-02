@@ -127,3 +127,22 @@ input[type = "date"] {
     right: 1em;
     cursor: pointer;
 }
+
+@media screen and (max-width: 600px) {
+    .container-principal {
+        flex-direction: column;
+    }
+
+    .content-user, .content-img {
+        width: auto;
+        height: auto;
+    }
+
+    #date {
+        margin-bottom: 2em;
+    }
+
+    #btn {
+    }
+
+}

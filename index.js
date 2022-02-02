@@ -32,11 +32,13 @@ $('#btn').click(function(){
                 const title = api.responseJSON.title;
                 const explanation = api.responseJSON.explanation;
                 if (type === 'image') {
+                    $('#video').addClass('invisible');
                     $('.content-img').removeClass('invisible');
                     $('#img').removeClass('invisible');
                     $('#img').attr('src', url);
                     console.log(url);
                 } else {
+                    $('#img').addClass('invisible');
                     $('.content-img').removeClass('invisible');
                     $('#video').removeClass('invisible');
                     $('#video').attr('src', url);
@@ -61,6 +63,8 @@ $('#btn-voltar').on('click', function (){
     $('.content-img').addClass('invisible');
     $('.entrada').removeClass('invisible');
     $('.resp').addClass('invisible');
+    $('#date').val('');
+    
 })
 
 function validaEntrada(date) {
