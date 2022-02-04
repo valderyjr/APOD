@@ -75,8 +75,8 @@ function validaEntrada(date) {
     }
 }
 
-$('#checktheme').on('click', function() {
-    chck = document.getElementById('checktheme')
+$('#chk').on('click', function() {
+    chck = document.getElementById('chk')
     if(chck.checked === true) {
         $('.container-principal').addClass('darkmode');
         $('nav').addClass('darkmode');

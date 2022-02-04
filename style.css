@@ -24,16 +24,66 @@ nav {
     height: 15vh;
     box-sizing: border-box;
     box-shadow: 0px 0px 10px rgb(17, 33, 63, 0.2);
+    transition: 0.2s;
 }
 
-.check {
+.checks {
     margin: 0;
     padding: 0;
     position: absolute;
-    right: 1em;
+    right: 2em;
     top: 50%;
     width: auto;
     height: auto;
+}
+
+#chk {
+   -webkit-appearance: none;
+   visibility: hidden;
+   display: none; 
+}
+
+.check {
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: rgb(17, 33, 63);
+    cursor: pointer;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: ease-in 0.5s;
+}
+
+#chk:checked ~ .check {
+    background-color: whitesmoke;
+}
+
+.check::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background-color: whitesmoke;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+.check::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background-color: rgb(17, 33, 63);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    transition: 0.2s;
+    transform: translateX(18px);
+}
+
+#chk:checked ~ .check::after {
+    transform: translateX(0px);
 }
 
 #img-logo {
@@ -47,6 +97,7 @@ nav {
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
+    transition: 0.2s;
 }
 
 .content-user {
@@ -60,6 +111,7 @@ nav {
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
+    transition: 0.2s;
 }
 
 
