@@ -64,7 +64,6 @@ $('#btn-voltar').on('click', function (){
     $('.entrada').removeClass('invisible');
     $('.resp').addClass('invisible');
     $('#date').val('');
-    
 })
 
 function validaEntrada(date) {
@@ -75,3 +74,25 @@ function validaEntrada(date) {
         return true;
     }
 }
+
+$('#checktheme').on('click', function() {
+    chck = document.getElementById('checktheme')
+    if(chck.checked === true) {
+        $('.container-principal').addClass('darkmode');
+        $('nav').addClass('darkmode');
+        $('#img-logo').attr('src', 'imagens/1logo.png');
+        $('nav').css('box-shadow', '0px 0px 10px rgb(255, 255, 255, 0.2)');
+        $('.content-user').css('box-shadow', '0px 0px 10px rgb(255, 255, 255, 0.2)');
+        $('#date').css('background-color', 'whitesmoke')
+        $('#date').css('color', 'rgb(17, 33, 63)')
+    } else {
+        $('.container-principal').removeClass('darkmode');
+        $('nav').removeClass('darkmode');
+        $('#img-logo').attr('src', 'imagens/logo.png');
+        $('nav').css('box-shadow', '0px 0px 10px rgb(17, 33, 63, 0.2)');
+        $('.content-user').css('box-shadow', '0px 0px 10px rgb(17, 33, 63, 0.2)');
+        $('#date').css('background-color', 'rgb(17, 33, 63)')
+        $('#date').css('color', 'whitesmoke')
+    }
+
+})

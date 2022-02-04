@@ -5,6 +5,11 @@ body, html {
     color: rgb(17, 33, 63);
 }
 
+.darkmode {
+    color: whitesmoke;
+    background-color: rgb(17, 33, 63);
+}
+
 body {
     width: 100vw;
     height: 100vh;
@@ -13,11 +18,22 @@ body {
 }
 
 nav {
+    position: relative;
     text-align: center;
     width: 100vw;
     height: 15vh;
     box-sizing: border-box;
     box-shadow: 0px 0px 10px rgb(17, 33, 63, 0.2);
+}
+
+.check {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    width: auto;
+    height: auto;
 }
 
 #img-logo {
@@ -50,7 +66,6 @@ nav {
 .titulo {
     font-size: 2em;
     font-weight: 700;
-    color: #11213F;
 }
 
 #label-date {
@@ -112,6 +127,7 @@ input[type = "date"] {
 .resp {
     margin: 0 1em;
 }
+
 .invisible {
     display: none;
 }
