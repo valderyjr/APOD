@@ -3,6 +3,7 @@ body, html {
     margin: 0;
     padding: 0;
     color: rgb(17, 33, 63);
+    overflow-y: hidden;
 }
 
 .darkmode {
@@ -12,7 +13,7 @@ body, html {
 
 body {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: whitesmoke;
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -196,6 +197,7 @@ input[type = "date"] {
     cursor: pointer;
 }
 
+
 @media screen and (max-width: 600px) {
     .container-principal {
         flex-direction: column;
@@ -210,7 +212,5 @@ input[type = "date"] {
         margin-bottom: 2em;
     }
 
-    #btn {
-    }
 
 }

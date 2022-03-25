@@ -1,31 +1,44 @@
+
 $(document).ready(function () {
     let today = new Date();
     let dia = today.getDate();
     let mes = today.getMonth() + 1; //January is 0!
     let ano = today.getFullYear();
-    
+
     if (dia < 10) {
-       dia = '0' + dia;
+        dia = '0' + dia;
     }
-    
+
     if (mes < 10) {
-       mes = '0' + mes;
-    } 
-        
+        mes = '0' + mes;
+    }
+
     today = ano + '-' + mes + '-' + dia;
     $('#date').attr('max', today);
+    document.getElementById('date').value = ''
+
+})
+
+let botao = document.getElementById('btn')
+botao.addEventListener('click', function() {
 
 })
 
 $('#btn').click(function(){
-    const data = $('#date').val();
-    const valida = validaEntrada(data);
+
+})
+
+
+$('#btn').click(function () {
+    const dataValor = $('#date').val();
+    const dataReal = new Date (dataValor.split('-'))
+    const timeData = dataReal.getTime()
+    const valida = validaEntrada(dataValor, timeData);
     if (valida) {
-        console.log(data);
         const api = $.ajax({
             method: "GET",
-            url: `https://api.nasa.gov/planetary/apod?api_key=NqBxvsgm294FLGzK7ObEtTrcOQKp1wSlyu64wYmH&date=${data}`,
-            success: function() {
+            url: `https://api.nasa.gov/planetary/apod?api_key=NqBxvsgm294FLGzK7ObEtTrcOQKp1wSlyu64wYmH&date=${dataValor}`,
+            success: function () {
                 const type = api.responseJSON.media_type;
                 const url = api.responseJSON.url;
                 const autor = api.responseJSON.copyright;
@@ -35,14 +48,12 @@ $('#btn').click(function(){
                     $('#video').addClass('invisible');
                     $('.content-img').removeClass('invisible');
                     $('#img').removeClass('invisible');
-                    $('#img').attr('src', url);
-                    console.log(url);
+                    $('#img').attr('src', url);                    
                 } else {
                     $('#img').addClass('invisible');
                     $('.content-img').removeClass('invisible');
                     $('#video').removeClass('invisible');
                     $('#video').attr('src', url);
-                    console.log(url);
                 }
 
                 $('.entrada').addClass('invisible');
@@ -50,24 +61,23 @@ $('#btn').click(function(){
 
                 $('#titulo-resp').html(title);
                 $('#texto-resp').html(explanation);
-                console.log(autor);
-                console.log(title);
-                console.log(explanation);
-                console.log(api);
             }
         })
     }
 })
 
-$('#btn-voltar').on('click', function (){
+$('#btn-voltar').on('click', function () {
     $('.content-img').addClass('invisible');
     $('.entrada').removeClass('invisible');
     $('.resp').addClass('invisible');
     $('#date').val('');
 })
 
-function validaEntrada(date) {
-    if (date.length <= 0) {
+function validaEntrada(date, time) {
+    const diaMinimo = new Date(1996, 5, 20).getTime()
+    const diaAtual = new Date().getTime()
+
+    if (date.length <= 0 || time < diaMinimo || time > diaAtual) {
         alert('Insira um valor válido!');
         return false;
     } else {
@@ -75,9 +85,9 @@ function validaEntrada(date) {
     }
 }
 
-$('#chk').on('click', function() {
+$('#chk').on('click', function () {
     chck = document.getElementById('chk')
-    if(chck.checked === true) {
+    if (chck.checked === true) {
         $('.container-principal').addClass('darkmode');
         $('nav').addClass('darkmode');
         $('#img-logo').attr('src', 'imagens/1logo.png');
